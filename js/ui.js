@@ -25,8 +25,9 @@ App.ui = {};
     const user = App.store.currentUser();
     const role = App.state.role;
     const current = location.hash || "#/";
+    const entered = !!localStorage.getItem("bolashaq_seen_login");
 
-    if (!user) {
+    if (!user || !entered) {
       el.innerHTML = `
         <div class="app-header-inner">
           <div class="brand" onclick="App.go('#/')">
